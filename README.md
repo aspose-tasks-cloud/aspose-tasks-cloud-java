@@ -70,8 +70,8 @@ Add this dependency to your project's POM:
 <dependencies>
     <dependency>
         <groupId>com.aspose</groupId>
-        <artifactId>aspose-Tasks-cloud</artifactId>
-        <version>21.2.0</version>
+        <artifactId>aspose-tasks-cloud</artifactId>
+        <version>21.7.0</version>
     </dependency>
 </dependencies>
 ```
@@ -90,7 +90,7 @@ Add this dependency to your project's POM:
         UploadFileRequest uploadRequest = new UploadFileRequest(Files.readAllBytes(Paths.get(localPath)), remotePath, null);
         tasksApi.uploadFile(uploadRequest);
 		
-		GetReportPdfRequest request = new GetReportPdfRequest(remoteFileName, ReportType.MILESTONES.getValue(), null, null);
+        GetReportPdfRequest request = new GetReportPdfRequest(remoteFileName, ReportType.MILESTONES.getValue(), null, null);
         File result = tasksApi.getReportPdf(request);
 		
 
