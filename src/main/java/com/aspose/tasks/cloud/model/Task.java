@@ -179,6 +179,9 @@ public class Task {
   @SerializedName("Guid")
   private String guid = null;
 
+  @SerializedName("HasOverallocatedResource")
+  private Boolean hasOverallocatedResource = null;
+
   @SerializedName("HideBar")
   private Boolean hideBar = null;
 
@@ -1134,6 +1137,24 @@ public class Task {
 
   public void setGuid(String guid) {
     this.guid = guid;
+  }
+
+  public Task hasOverallocatedResource(Boolean hasOverallocatedResource) {
+    this.hasOverallocatedResource = hasOverallocatedResource;
+    return this;
+  }
+
+   /**
+   * Indicates whether the task has an resource assigned which has more work on assigned tasks than can be completed within normal working capacity.
+   * @return hasOverallocatedResource
+  **/
+  @ApiModelProperty(required = true, value = "Indicates whether the task has an resource assigned which has more work on assigned tasks than can be completed within normal working capacity.")
+  public Boolean isHasOverallocatedResource() {
+    return hasOverallocatedResource;
+  }
+
+  public void setHasOverallocatedResource(Boolean hasOverallocatedResource) {
+    this.hasOverallocatedResource = hasOverallocatedResource;
   }
 
   public Task hideBar(Boolean hideBar) {
@@ -2533,6 +2554,7 @@ public class Task {
         Objects.equals(this.fixedCostAccrual, task.fixedCostAccrual) &&
         Objects.equals(this.freeSlack, task.freeSlack) &&
         Objects.equals(this.guid, task.guid) &&
+        Objects.equals(this.hasOverallocatedResource, task.hasOverallocatedResource) &&
         Objects.equals(this.hideBar, task.hideBar) &&
         Objects.equals(this.ignoreResourceCalendar, task.ignoreResourceCalendar) &&
         Objects.equals(this.lateFinish, task.lateFinish) &&
@@ -2610,7 +2632,7 @@ public class Task {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uid, id, name, durationText, duration, start, finish, startText, finishText, percentComplete, percentWorkComplete, isActive, actualCost, actualDuration, actualFinish, actualOvertimeCost, actualOvertimeWork, actualWorkProtected, actualOvertimeWorkProtected, actualStart, budgetWork, budgetCost, constraintDate, constraintType, contact, cost, cv, deadline, durationVariance, earlyFinish, earlyStart, isEffortDriven, isExternalTask, externalTaskProject, externalId, finishSlack, finishVariance, fixedCost, fixedCostAccrual, freeSlack, guid, hideBar, ignoreResourceCalendar, lateFinish, lateStart, isLevelAssignments, canLevelingSplit, levelingDelay, isMarked, isMilestone, isCritical, isSubproject, isSubprojectReadOnly, subprojectName, isSummary, subtasksUids, outlineLevel, isOverAllocated, isEstimated, overtimeCost, overtimeWork, physicalPercentComplete, preLeveledFinish, preLeveledStart, isRecurring, regularWork, remainingCost, remainingDuration, remainingOvertimeCost, remainingOvertimeWork, remainingWork, resume, isResumeValid, stop, isRollup, startSlack, startVariance, calendarUid, isManual, manualStart, manualFinish, manualDuration, totalSlack, type, wbs, priority, work, workVariance, notesText, notesRTF, acwp, bcws, bcwp, levelingDelayFormat, predecessors, successors, ignoreWarnings, isExpanded, displayOnTimeline, displayAsSummary, hyperlink, hyperlinkAddress, hyperlinkSubAddress, earnedValueMethod, isPublished, statusManager, commitmentStart, commitmentFinish, commitmentType, baselines, extendedAttributes, outlineCodes, warning, activityId);
+    return Objects.hash(uid, id, name, durationText, duration, start, finish, startText, finishText, percentComplete, percentWorkComplete, isActive, actualCost, actualDuration, actualFinish, actualOvertimeCost, actualOvertimeWork, actualWorkProtected, actualOvertimeWorkProtected, actualStart, budgetWork, budgetCost, constraintDate, constraintType, contact, cost, cv, deadline, durationVariance, earlyFinish, earlyStart, isEffortDriven, isExternalTask, externalTaskProject, externalId, finishSlack, finishVariance, fixedCost, fixedCostAccrual, freeSlack, guid, hasOverallocatedResource, hideBar, ignoreResourceCalendar, lateFinish, lateStart, isLevelAssignments, canLevelingSplit, levelingDelay, isMarked, isMilestone, isCritical, isSubproject, isSubprojectReadOnly, subprojectName, isSummary, subtasksUids, outlineLevel, isOverAllocated, isEstimated, overtimeCost, overtimeWork, physicalPercentComplete, preLeveledFinish, preLeveledStart, isRecurring, regularWork, remainingCost, remainingDuration, remainingOvertimeCost, remainingOvertimeWork, remainingWork, resume, isResumeValid, stop, isRollup, startSlack, startVariance, calendarUid, isManual, manualStart, manualFinish, manualDuration, totalSlack, type, wbs, priority, work, workVariance, notesText, notesRTF, acwp, bcws, bcwp, levelingDelayFormat, predecessors, successors, ignoreWarnings, isExpanded, displayOnTimeline, displayAsSummary, hyperlink, hyperlinkAddress, hyperlinkSubAddress, earnedValueMethod, isPublished, statusManager, commitmentStart, commitmentFinish, commitmentType, baselines, extendedAttributes, outlineCodes, warning, activityId);
   }
 
 
@@ -2660,6 +2682,7 @@ public class Task {
     sb.append("    fixedCostAccrual: ").append(toIndentedString(fixedCostAccrual)).append("\n");
     sb.append("    freeSlack: ").append(toIndentedString(freeSlack)).append("\n");
     sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
+    sb.append("    hasOverallocatedResource: ").append(toIndentedString(hasOverallocatedResource)).append("\n");
     sb.append("    hideBar: ").append(toIndentedString(hideBar)).append("\n");
     sb.append("    ignoreResourceCalendar: ").append(toIndentedString(ignoreResourceCalendar)).append("\n");
     sb.append("    lateFinish: ").append(toIndentedString(lateFinish)).append("\n");

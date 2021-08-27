@@ -47,7 +47,7 @@ public class GetProjectListRequest {
     private String userName;
 
     /*
-     * Authorization token for the SharePoint. For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
+     * Authorization token (SPOIDCRL) for SharePoint's PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
      */
     private String xProjectOnlineToken;
 
@@ -61,7 +61,7 @@ public class GetProjectListRequest {
      *  
      * @param String siteUrl The URL of PWA (Project Web Access) API of Project Online.
      * @param String userName The user name for the sharepoint site.
-     * @param String xProjectOnlineToken Authorization token for the SharePoint. For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
+     * @param String xProjectOnlineToken Authorization token (SPOIDCRL) for SharePoint's PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
      * @param String xSharepointPassword The password for the SharePoint site.
      */
     public GetProjectListRequest(String siteUrl,  String userName,  String xProjectOnlineToken,  String xSharepointPassword) {
@@ -100,14 +100,14 @@ public class GetProjectListRequest {
     }
 
     /*
-     *  Gets Authorization token for the SharePoint. For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
+     *  Gets Authorization token (SPOIDCRL) for SharePoint's PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
      */
     public String getxProjectOnlineToken() {
         return xProjectOnlineToken;
     }
 
     /*
-     * Sets Authorization token for the SharePoint. For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
+     * Sets Authorization token (SPOIDCRL) for SharePoint's PWA (Project Web Access). For example, in c# it can be retrieved using SharePointOnlineCredentials class from Microsoft.SharePoint.Client.Runtime assembly
      */
     public void setxProjectOnlineToken(String value) {
         xProjectOnlineToken = value;
