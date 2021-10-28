@@ -75,6 +75,9 @@ public class ExtendedAttribute {
   @SerializedName("TextValue")
   private String textValue = null;
 
+  @SerializedName("IsErrorValue")
+  private Boolean isErrorValue = null;
+
   public ExtendedAttribute fieldId(String fieldId) {
     this.fieldId = fieldId;
     return this;
@@ -237,6 +240,24 @@ public class ExtendedAttribute {
     this.textValue = textValue;
   }
 
+  public ExtendedAttribute isErrorValue(Boolean isErrorValue) {
+    this.isErrorValue = isErrorValue;
+    return this;
+  }
+
+   /**
+   * Gets whether calculation of extended attribute&#39;s value resulted in an error.             
+   * @return isErrorValue
+  **/
+  @ApiModelProperty(required = true, value = "Gets whether calculation of extended attribute's value resulted in an error.             ")
+  public Boolean isIsErrorValue() {
+    return isErrorValue;
+  }
+
+  public void setIsErrorValue(Boolean isErrorValue) {
+    this.isErrorValue = isErrorValue;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -255,12 +276,13 @@ public class ExtendedAttribute {
         Objects.equals(this.numericValue, extendedAttribute.numericValue) &&
         Objects.equals(this.dateValue, extendedAttribute.dateValue) &&
         Objects.equals(this.flagValue, extendedAttribute.flagValue) &&
-        Objects.equals(this.textValue, extendedAttribute.textValue);
+        Objects.equals(this.textValue, extendedAttribute.textValue) &&
+        Objects.equals(this.isErrorValue, extendedAttribute.isErrorValue);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldId, attributeType, valueGuid, lookupValueId, durationValue, numericValue, dateValue, flagValue, textValue);
+    return Objects.hash(fieldId, attributeType, valueGuid, lookupValueId, durationValue, numericValue, dateValue, flagValue, textValue, isErrorValue);
   }
 
 
@@ -278,6 +300,7 @@ public class ExtendedAttribute {
     sb.append("    dateValue: ").append(toIndentedString(dateValue)).append("\n");
     sb.append("    flagValue: ").append(toIndentedString(flagValue)).append("\n");
     sb.append("    textValue: ").append(toIndentedString(textValue)).append("\n");
+    sb.append("    isErrorValue: ").append(toIndentedString(isErrorValue)).append("\n");
     sb.append("}");
     return sb.toString();
   }
