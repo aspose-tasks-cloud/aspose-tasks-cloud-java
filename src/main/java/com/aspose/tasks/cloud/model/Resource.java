@@ -56,6 +56,9 @@ import org.threeten.bp.OffsetDateTime;
 @ApiModel(description = "Represents a project resource.")
 
 public class Resource {
+  @SerializedName("IsRoot")
+  private Boolean isRoot = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -283,6 +286,24 @@ public class Resource {
 
   @SerializedName("OutlineCodes")
   private List<OutlineCode> outlineCodes = null;
+
+  public Resource isRoot(Boolean isRoot) {
+    this.isRoot = isRoot;
+    return this;
+  }
+
+   /**
+   *         Gets the flag indicating whether resource is a root resource. Root resource is         a special resource which is intended to support internals of MS Project&#39;s formats         and is not intended to be used directly from the user&#39;s code.     
+   * @return isRoot
+  **/
+  @ApiModelProperty(required = true, value = "        Gets the flag indicating whether resource is a root resource. Root resource is         a special resource which is intended to support internals of MS Project's formats         and is not intended to be used directly from the user's code.     ")
+  public Boolean isIsRoot() {
+    return isRoot;
+  }
+
+  public void setIsRoot(Boolean isRoot) {
+    this.isRoot = isRoot;
+  }
 
   public Resource name(String name) {
     this.name = name;
@@ -1686,7 +1707,8 @@ public class Resource {
       return false;
     }
     Resource resource = (Resource) o;
-    return Objects.equals(this.name, resource.name) &&
+    return Objects.equals(this.isRoot, resource.isRoot) &&
+        Objects.equals(this.name, resource.name) &&
         Objects.equals(this.uid, resource.uid) &&
         Objects.equals(this.id, resource.id) &&
         Objects.equals(this.guid, resource.guid) &&
@@ -1766,7 +1788,7 @@ public class Resource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, uid, id, guid, type, isNull, initials, phonetics, ntAccount, windowsUserAccount, workgroup, materialLabel, code, group, emailAddress, hyperlink, hyperlinkAddress, hyperlinkSubAddress, maxUnits, peakUnits, overAllocated, availableFrom, availableTo, start, finish, canLevel, accrueAt, work, regularWork, overtimeWork, actualWork, remainingWork, actualOvertimeWork, remainingOvertimeWork, percentWorkComplete, standardRate, standardRateFormat, cost, overtimeRateFormat, overtimeCost, costPerUse, actualCost, actualOvertimeCost, remainingCost, remainingOvertimeCost, workVariance, costVariance, sv, cv, acwp, calendarUid, notesText, notes, notesRTF, bcws, bcwp, isGeneric, isInactive, isEnterprise, bookingType, actualWorkProtected, actualOvertimeWorkProtected, activeDirectoryGuid, creationDate, costCenter, isCostResource, teamAssignmentPool, assignmentOwner, assignmentOwnerGuid, isBudget, budgetWork, budgetCost, overtimeRate, baselines, extendedAttributes, outlineCodes);
+    return Objects.hash(isRoot, name, uid, id, guid, type, isNull, initials, phonetics, ntAccount, windowsUserAccount, workgroup, materialLabel, code, group, emailAddress, hyperlink, hyperlinkAddress, hyperlinkSubAddress, maxUnits, peakUnits, overAllocated, availableFrom, availableTo, start, finish, canLevel, accrueAt, work, regularWork, overtimeWork, actualWork, remainingWork, actualOvertimeWork, remainingOvertimeWork, percentWorkComplete, standardRate, standardRateFormat, cost, overtimeRateFormat, overtimeCost, costPerUse, actualCost, actualOvertimeCost, remainingCost, remainingOvertimeCost, workVariance, costVariance, sv, cv, acwp, calendarUid, notesText, notes, notesRTF, bcws, bcwp, isGeneric, isInactive, isEnterprise, bookingType, actualWorkProtected, actualOvertimeWorkProtected, activeDirectoryGuid, creationDate, costCenter, isCostResource, teamAssignmentPool, assignmentOwner, assignmentOwnerGuid, isBudget, budgetWork, budgetCost, overtimeRate, baselines, extendedAttributes, outlineCodes);
   }
 
 
@@ -1775,6 +1797,7 @@ public class Resource {
     StringBuilder sb = new StringBuilder();
     sb.append("class Resource {\n");
     
+    sb.append("    isRoot: ").append(toIndentedString(isRoot)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

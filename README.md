@@ -71,7 +71,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-tasks-cloud</artifactId>
-        <version>21.10.0</version>
+        <version>22.7.0</version>
     </dependency>
 </dependencies>
 ```

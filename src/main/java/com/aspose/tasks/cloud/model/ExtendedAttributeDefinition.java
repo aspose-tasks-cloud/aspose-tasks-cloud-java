@@ -33,6 +33,7 @@ import com.aspose.tasks.cloud.model.CalculationType;
 import com.aspose.tasks.cloud.model.CustomFieldType;
 import com.aspose.tasks.cloud.model.ElementType;
 import com.aspose.tasks.cloud.model.RollupType;
+import com.aspose.tasks.cloud.model.SummaryRowsCalculationType;
 import com.aspose.tasks.cloud.model.Value;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -95,6 +96,9 @@ public class ExtendedAttributeDefinition {
 
   @SerializedName("CalculationType")
   private CalculationType calculationType = null;
+
+  @SerializedName("SummaryRowsCalculationType")
+  private SummaryRowsCalculationType summaryRowsCalculationType = null;
 
   @SerializedName("Formula")
   private String formula = null;
@@ -387,6 +391,24 @@ public class ExtendedAttributeDefinition {
     this.calculationType = calculationType;
   }
 
+  public ExtendedAttributeDefinition summaryRowsCalculationType(SummaryRowsCalculationType summaryRowsCalculationType) {
+    this.summaryRowsCalculationType = summaryRowsCalculationType;
+    return this;
+  }
+
+   /**
+   * Gets or sets the type of calculation of the custom attribute&#39;s value for summary rows.
+   * @return summaryRowsCalculationType
+  **/
+  @ApiModelProperty(required = true, value = "Gets or sets the type of calculation of the custom attribute's value for summary rows.")
+  public SummaryRowsCalculationType getSummaryRowsCalculationType() {
+    return summaryRowsCalculationType;
+  }
+
+  public void setSummaryRowsCalculationType(SummaryRowsCalculationType summaryRowsCalculationType) {
+    this.summaryRowsCalculationType = summaryRowsCalculationType;
+  }
+
   public ExtendedAttributeDefinition formula(String formula) {
     this.formula = formula;
     return this;
@@ -546,6 +568,7 @@ public class ExtendedAttributeDefinition {
         Objects.equals(this.phoneticsAlias, extendedAttributeDefinition.phoneticsAlias) &&
         Objects.equals(this.rollupType, extendedAttributeDefinition.rollupType) &&
         Objects.equals(this.calculationType, extendedAttributeDefinition.calculationType) &&
+        Objects.equals(this.summaryRowsCalculationType, extendedAttributeDefinition.summaryRowsCalculationType) &&
         Objects.equals(this.formula, extendedAttributeDefinition.formula) &&
         Objects.equals(this.restrictValues, extendedAttributeDefinition.restrictValues) &&
         Objects.equals(this.valuelistSortOrder, extendedAttributeDefinition.valuelistSortOrder) &&
@@ -557,7 +580,7 @@ public class ExtendedAttributeDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldId, fieldName, cfType, guid, elementType, maxMultiValues, userDef, alias, secondaryPid, autoRollDown, defaultGuid, lookupUid, phoneticsAlias, rollupType, calculationType, formula, restrictValues, valuelistSortOrder, appendNewValues, _default, valueList, secondaryGuid);
+    return Objects.hash(fieldId, fieldName, cfType, guid, elementType, maxMultiValues, userDef, alias, secondaryPid, autoRollDown, defaultGuid, lookupUid, phoneticsAlias, rollupType, calculationType, summaryRowsCalculationType, formula, restrictValues, valuelistSortOrder, appendNewValues, _default, valueList, secondaryGuid);
   }
 
 
@@ -581,6 +604,7 @@ public class ExtendedAttributeDefinition {
     sb.append("    phoneticsAlias: ").append(toIndentedString(phoneticsAlias)).append("\n");
     sb.append("    rollupType: ").append(toIndentedString(rollupType)).append("\n");
     sb.append("    calculationType: ").append(toIndentedString(calculationType)).append("\n");
+    sb.append("    summaryRowsCalculationType: ").append(toIndentedString(summaryRowsCalculationType)).append("\n");
     sb.append("    formula: ").append(toIndentedString(formula)).append("\n");
     sb.append("    restrictValues: ").append(toIndentedString(restrictValues)).append("\n");
     sb.append("    valuelistSortOrder: ").append(toIndentedString(valuelistSortOrder)).append("\n");
