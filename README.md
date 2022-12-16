@@ -32,6 +32,10 @@ Feel free to explore the [Developer's Guide](https://docs.aspose.cloud/display/t
 XER, XLSX, HTML, XML, TXT, TIF, SVG, PNG, JPEG
 
 
+## Enhancements in Version 22.12
+- Added new ability to read Primavera-specific task's properties.
+- Provided the ability to read more document properties.
+
 ## Enhancements in Version 20.11
 - Support for the batch creation of tasks (i.e. the ability to create multiple tasks in a single *API* call).
 
@@ -71,7 +75,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-tasks-cloud</artifactId>
-        <version>22.7.0</version>
+        <version>22.12.0</version>
     </dependency>
 </dependencies>
 ```

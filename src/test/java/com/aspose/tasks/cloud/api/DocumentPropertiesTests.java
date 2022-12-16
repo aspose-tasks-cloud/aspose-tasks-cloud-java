@@ -58,7 +58,7 @@ public class DocumentPropertiesTests extends TestBase {
         assertNotNull(result);
         assertEquals(200, (int) result.getCode());
         assertNotNull(result.getProperties());
-        assertEquals(52, result.getProperties().getList().size());
+        assertEquals(63, result.getProperties().getList().size());
         assertEquals("Title", result.getProperties().getList().get(0).getName());
         assertEquals("Home Move", result.getProperties().getList().get(0).getValue());
     }
