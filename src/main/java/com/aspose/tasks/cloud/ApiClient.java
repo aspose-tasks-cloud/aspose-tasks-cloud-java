@@ -68,8 +68,9 @@ public class ApiClient {
 
     private String apiVersion = "v3.0";
     private String baseUrl = "https://api.aspose.cloud";
+    private String authUrl = "";
 	private String basePath = baseUrl + "/" + apiVersion;
-	private String clientVersion = "22.12.0";
+	private String clientVersion = "24.4.0";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private String tempFolderPath = null;
@@ -90,6 +91,18 @@ public class ApiClient {
         this.appKey = appKey;
         if (baseUrl != null) {
             this.setBaseUrl(baseUrl);
+        }
+    }
+
+    public ApiClient(String appSid, String appKey, String baseUrl, String authUrl) {
+        this();
+        this.appSid = appSid;
+        this.appKey = appKey;
+        if (baseUrl != null) {
+            this.setBaseUrl(baseUrl);
+        }
+        if (authUrl != null) {
+            this.authUrl = authUrl;
         }
     }
 
@@ -1067,7 +1080,13 @@ public class ApiClient {
                     .addEncoded("client_secret", getAppKey())
                     .build();
 
-            String url = baseUrl + "/connect/token";
+            String url;
+            if(authUrl.isEmpty()) {
+                url = baseUrl + "/connect/token";
+            } else {
+                url = authUrl;
+            }
+
             Request request = new Request.Builder()
                     .url(url)
                     .post(requestBody)

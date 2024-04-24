@@ -30,6 +30,7 @@ package com.aspose.tasks.cloud.model.responses;
 import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.tasks.cloud.model.responses.AsposeResponse;
+import com.aspose.tasks.cloud.model.View;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,38 +43,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ProjectIds response
+ * Views Response.
  */
-@ApiModel(description = "ProjectIds response")
+@ApiModel(description = "Views Response.")
 
-public class ProjectIdsResponse extends AsposeResponse {
-  @SerializedName("ProjectIds")
-  private List<String> projectIds = null;
+public class ViewsResponse extends AsposeResponse {
+  @SerializedName("Views")
+  private List<View> views = null;
 
-  public ProjectIdsResponse projectIds(List<String> projectIds) {
-    this.projectIds = projectIds;
+  public ViewsResponse views(List<View> views) {
+    this.views = views;
     return this;
   }
 
-  public ProjectIdsResponse addProjectIdsItem(String projectIdsItem) {
-    if (this.projectIds == null) {
-      this.projectIds = new ArrayList<String>();
+  public ViewsResponse addViewsItem(View viewsItem) {
+    if (this.views == null) {
+      this.views = new ArrayList<View>();
     }
-    this.projectIds.add(projectIdsItem);
+    this.views.add(viewsItem);
     return this;
   }
 
    /**
-   * UIds of the project
-   * @return projectIds
+   * Views of the project
+   * @return views
   **/
-  @ApiModelProperty(value = "UIds of the project")
-  public List<String> getProjectIds() {
-    return projectIds;
+  @ApiModelProperty(value = "Views of the project")
+  public List<View> getViews() {
+    return views;
   }
 
-  public void setProjectIds(List<String> projectIds) {
-    this.projectIds = projectIds;
+  public void setViews(List<View> views) {
+    this.views = views;
   }
 
 
@@ -85,23 +86,23 @@ public class ProjectIdsResponse extends AsposeResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectIdsResponse projectIdsResponse = (ProjectIdsResponse) o;
-    return Objects.equals(this.projectIds, projectIdsResponse.projectIds) &&
+    ViewsResponse viewsResponse = (ViewsResponse) o;
+    return Objects.equals(this.views, viewsResponse.views) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectIds, super.hashCode());
+    return Objects.hash(views, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectIdsResponse {\n");
+    sb.append("class ViewsResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    projectIds: ").append(toIndentedString(projectIds)).append("\n");
+    sb.append("    views: ").append(toIndentedString(views)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -11891,6 +11891,873 @@ if (request.getxSharepointPassword() != null)
         return call;
     }
     /**
+     * Build call for createTableTextStyle
+     * @param request CreateTableTextStyle request with main agrs
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call createTableTextStyleCall(CreateTableTextStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.gettableTextStyle();
+
+        // create path and map variables
+        String localVarPath = "/tasks/{name}/views/{viewUid}/tabletextstyles"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getname().toString()))
+            .replaceAll("\\{" + "viewUid" + "\\}", apiClient.escapeString(request.getviewUid().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fileName", request.getfileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getstorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getfolder());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call createTableTextStyleValidateBeforeCall(CreateTableTextStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getname() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'name' when calling createTableTextStyle");
+        }
+        
+        // verify the required parameter 'viewUid' is set
+        if (request.getviewUid() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'viewUid' when calling createTableTextStyle");
+        }
+        
+        // verify the required parameter 'tableTextStyle' is set
+        if (request.gettableTextStyle() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'tableTextStyle' when calling createTableTextStyle");
+        }
+        
+
+        com.squareup.okhttp.Call call = createTableTextStyleCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Create table text style in specified view.
+     * 
+     * request CreateTableTextStyle request with main agrs
+     * @return AsposeResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AsposeResponse createTableTextStyle(CreateTableTextStyleRequest request) throws ApiException {
+        try {
+            ApiResponse<AsposeResponse> resp = createTableTextStyleWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<AsposeResponse> resp = createTableTextStyleWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Create table text style in specified view.
+     * 
+     * @param request CreateTableTextStyle request with main agrs
+     * @return ApiResponse&lt;AsposeResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<AsposeResponse> createTableTextStyleWithHttpInfo(CreateTableTextStyleRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = createTableTextStyleValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create table text style in specified view. (asynchronously)
+     * 
+     * @param request CreateTableTextStyle request with main agrs
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call createTableTextStyleAsync(CreateTableTextStyleRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = createTableTextStyleValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for deleteTableTextStyle
+     * @param request DeleteTableTextStyle request with main agrs
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call deleteTableTextStyleCall(DeleteTableTextStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/tasks/{name}/views/{viewUid}/tabletextstyles/{rowUid}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getname().toString()))
+            .replaceAll("\\{" + "viewUid" + "\\}", apiClient.escapeString(request.getviewUid().toString()))
+            .replaceAll("\\{" + "rowUid" + "\\}", apiClient.escapeString(request.getrowUid().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "field", request.getfield());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fileName", request.getfileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getstorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getfolder());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call deleteTableTextStyleValidateBeforeCall(DeleteTableTextStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getname() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'name' when calling deleteTableTextStyle");
+        }
+        
+        // verify the required parameter 'viewUid' is set
+        if (request.getviewUid() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'viewUid' when calling deleteTableTextStyle");
+        }
+        
+        // verify the required parameter 'rowUid' is set
+        if (request.getrowUid() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'rowUid' when calling deleteTableTextStyle");
+        }
+        
+
+        com.squareup.okhttp.Call call = deleteTableTextStyleCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete specified table text style from specified view.
+     * 
+     * request DeleteTableTextStyle request with main agrs
+     * @return AsposeResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AsposeResponse deleteTableTextStyle(DeleteTableTextStyleRequest request) throws ApiException {
+        try {
+            ApiResponse<AsposeResponse> resp = deleteTableTextStyleWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<AsposeResponse> resp = deleteTableTextStyleWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Delete specified table text style from specified view.
+     * 
+     * @param request DeleteTableTextStyle request with main agrs
+     * @return ApiResponse&lt;AsposeResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<AsposeResponse> deleteTableTextStyleWithHttpInfo(DeleteTableTextStyleRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = deleteTableTextStyleValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Delete specified table text style from specified view. (asynchronously)
+     * 
+     * @param request DeleteTableTextStyle request with main agrs
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call deleteTableTextStyleAsync(DeleteTableTextStyleRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = deleteTableTextStyleValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getAllTableTextStyles
+     * @param request GetAllTableTextStyles request with main agrs
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getAllTableTextStylesCall(GetAllTableTextStylesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/tasks/{name}/views/{viewUid}/tabletextstyles"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getname().toString()))
+            .replaceAll("\\{" + "viewUid" + "\\}", apiClient.escapeString(request.getviewUid().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getstorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getfolder());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getAllTableTextStylesValidateBeforeCall(GetAllTableTextStylesRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getname() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'name' when calling getAllTableTextStyles");
+        }
+        
+        // verify the required parameter 'viewUid' is set
+        if (request.getviewUid() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'viewUid' when calling getAllTableTextStyles");
+        }
+        
+
+        com.squareup.okhttp.Call call = getAllTableTextStylesCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Read all table text styles from specified view.
+     * 
+     * request GetAllTableTextStyles request with main agrs
+     * @return TableTextStylesResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TableTextStylesResponse getAllTableTextStyles(GetAllTableTextStylesRequest request) throws ApiException {
+        try {
+            ApiResponse<TableTextStylesResponse> resp = getAllTableTextStylesWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<TableTextStylesResponse> resp = getAllTableTextStylesWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Read all table text styles from specified view.
+     * 
+     * @param request GetAllTableTextStyles request with main agrs
+     * @return ApiResponse&lt;TableTextStylesResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<TableTextStylesResponse> getAllTableTextStylesWithHttpInfo(GetAllTableTextStylesRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getAllTableTextStylesValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<TableTextStylesResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Read all table text styles from specified view. (asynchronously)
+     * 
+     * @param request GetAllTableTextStyles request with main agrs
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getAllTableTextStylesAsync(GetAllTableTextStylesRequest request, final ApiCallback<TableTextStylesResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getAllTableTextStylesValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TableTextStylesResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getTableTextStyle
+     * @param request GetTableTextStyle request with main agrs
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getTableTextStyleCall(GetTableTextStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/tasks/{name}/views/{viewUid}/tabletextstyles/{rowUid}"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getname().toString()))
+            .replaceAll("\\{" + "viewUid" + "\\}", apiClient.escapeString(request.getviewUid().toString()))
+            .replaceAll("\\{" + "rowUid" + "\\}", apiClient.escapeString(request.getrowUid().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "field", request.getfield());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getstorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getfolder());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getTableTextStyleValidateBeforeCall(GetTableTextStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getname() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'name' when calling getTableTextStyle");
+        }
+        
+        // verify the required parameter 'viewUid' is set
+        if (request.getviewUid() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'viewUid' when calling getTableTextStyle");
+        }
+        
+        // verify the required parameter 'rowUid' is set
+        if (request.getrowUid() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'rowUid' when calling getTableTextStyle");
+        }
+        
+
+        com.squareup.okhttp.Call call = getTableTextStyleCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Read specified table text style from specified view.
+     * 
+     * request GetTableTextStyle request with main agrs
+     * @return TableTextStyleResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TableTextStyleResponse getTableTextStyle(GetTableTextStyleRequest request) throws ApiException {
+        try {
+            ApiResponse<TableTextStyleResponse> resp = getTableTextStyleWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<TableTextStyleResponse> resp = getTableTextStyleWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Read specified table text style from specified view.
+     * 
+     * @param request GetTableTextStyle request with main agrs
+     * @return ApiResponse&lt;TableTextStyleResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<TableTextStyleResponse> getTableTextStyleWithHttpInfo(GetTableTextStyleRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getTableTextStyleValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<TableTextStyleResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Read specified table text style from specified view. (asynchronously)
+     * 
+     * @param request GetTableTextStyle request with main agrs
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getTableTextStyleAsync(GetTableTextStyleRequest request, final ApiCallback<TableTextStyleResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getTableTextStyleValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TableTextStyleResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getViews
+     * @param request GetViews request with main agrs
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call getViewsCall(GetViewsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/tasks/{name}/views"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getname().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getstorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getfolder());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call getViewsValidateBeforeCall(GetViewsRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getname() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'name' when calling getViews");
+        }
+        
+
+        com.squareup.okhttp.Call call = getViewsCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Read all project views.
+     * 
+     * request GetViews request with main agrs
+     * @return ViewsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ViewsResponse getViews(GetViewsRequest request) throws ApiException {
+        try {
+            ApiResponse<ViewsResponse> resp = getViewsWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<ViewsResponse> resp = getViewsWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Read all project views.
+     * 
+     * @param request GetViews request with main agrs
+     * @return ApiResponse&lt;ViewsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<ViewsResponse> getViewsWithHttpInfo(GetViewsRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = getViewsValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<ViewsResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Read all project views. (asynchronously)
+     * 
+     * @param request GetViews request with main agrs
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call getViewsAsync(GetViewsRequest request, final ApiCallback<ViewsResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = getViewsValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<ViewsResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for updateTableTextStyle
+     * @param request UpdateTableTextStyle request with main agrs
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    private com.squareup.okhttp.Call updateTableTextStyleCall(UpdateTableTextStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = request.gettableTextStyle();
+
+        // create path and map variables
+        String localVarPath = "/tasks/{name}/views/{viewUid}/tabletextstyles"
+            .replaceAll("\\{" + "name" + "\\}", apiClient.escapeString(request.getname().toString()))
+            .replaceAll("\\{" + "viewUid" + "\\}", apiClient.escapeString(request.getviewUid().toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "fileName", request.getfileName());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "storage", request.getstorage());
+        localVarPath = addParameterToQuery(localVarQueryParams, localVarPath, "folder", request.getfolder());
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        
+        Map<String, Object> localVarFormParams = new LinkedHashMap<String, Object>();
+        
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if (progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "JWT" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call updateTableTextStyleValidateBeforeCall(UpdateTableTextStyleRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'name' is set
+        if (request.getname() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'name' when calling updateTableTextStyle");
+        }
+        
+        // verify the required parameter 'viewUid' is set
+        if (request.getviewUid() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'viewUid' when calling updateTableTextStyle");
+        }
+        
+        // verify the required parameter 'tableTextStyle' is set
+        if (request.gettableTextStyle() == null) {
+          throw new ApiException(BadRequest, "Missing the required parameter 'tableTextStyle' when calling updateTableTextStyle");
+        }
+        
+
+        com.squareup.okhttp.Call call = updateTableTextStyleCall(request, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update table text style in specified view.
+     * 
+     * request UpdateTableTextStyle request with main agrs
+     * @return AsposeResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public AsposeResponse updateTableTextStyle(UpdateTableTextStyleRequest request) throws ApiException {
+        try {
+            ApiResponse<AsposeResponse> resp = updateTableTextStyleWithHttpInfo(request);
+            return resp.getData();
+        }
+        catch (ApiException ex) {
+            if (ex.getCode() == NotAuth) {
+                apiClient.requestToken();
+                ApiResponse<AsposeResponse> resp = updateTableTextStyleWithHttpInfo(request);
+                return resp.getData();
+            }
+            throw ex;
+        }
+    }
+
+    /**
+     * Update table text style in specified view.
+     * 
+     * @param request UpdateTableTextStyle request with main agrs
+     * @return ApiResponse&lt;AsposeResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    private ApiResponse<AsposeResponse> updateTableTextStyleWithHttpInfo(UpdateTableTextStyleRequest request) throws ApiException {
+        com.squareup.okhttp.Call call = updateTableTextStyleValidateBeforeCall(request, null, null);
+        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update table text style in specified view. (asynchronously)
+     * 
+     * @param request UpdateTableTextStyle request with main agrs
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call updateTableTextStyleAsync(UpdateTableTextStyleRequest request, final ApiCallback<AsposeResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = updateTableTextStyleValidateBeforeCall(request, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AsposeResponse>() { }.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getWbsDefinition
      * @param request GetWbsDefinition request with main agrs
      * @param progressListener Progress listener

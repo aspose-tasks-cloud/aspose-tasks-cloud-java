@@ -55,7 +55,7 @@ public final class TestInitializer {
 
     public static void Initialize(String credsPath) throws FileNotFoundException, ApiException {
         Map<String, String> creds = GetConfig(credsPath);
-        apiClient = new ApiClient(creds.get("AppSid"), creds.get("AppKey"), creds.get("BaseUrl"));
+        apiClient = new ApiClient(creds.get("AppSid"), creds.get("AppKey"), creds.get("BaseUrl"), creds.get("AuthUrl"));
         tasksApi = new TasksApi(apiClient);
     }
 

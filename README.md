@@ -32,6 +32,10 @@ Feel free to explore the [Developer's Guide](https://docs.aspose.cloud/display/t
 XER, XLSX, HTML, XML, TXT, TIF, SVG, PNG, JPEG
 
 
+## Enhancements in Version 24.4
+- Added new ability to get views information.
+- Possibility to modify table text styles for Gantt Chart views.
+
 ## Enhancements in Version 22.12
 - Added new ability to read Primavera-specific task's properties.
 - Provided the ability to read more document properties.
@@ -75,7 +79,7 @@ Add this dependency to your project's POM:
     <dependency>
         <groupId>com.aspose</groupId>
         <artifactId>aspose-tasks-cloud</artifactId>
-        <version>22.12.0</version>
+        <version>24.4.0</version>
     </dependency>
 </dependencies>
 ```

@@ -30,6 +30,7 @@ package com.aspose.tasks.cloud.model.responses;
 import java.util.Objects;
 import java.util.Arrays;
 import com.aspose.tasks.cloud.model.responses.AsposeResponse;
+import com.aspose.tasks.cloud.model.TableTextStyle;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -38,42 +39,32 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * ProjectIds response
+ * TableTextStyle Response
  */
-@ApiModel(description = "ProjectIds response")
+@ApiModel(description = "TableTextStyle Response")
 
-public class ProjectIdsResponse extends AsposeResponse {
-  @SerializedName("ProjectIds")
-  private List<String> projectIds = null;
+public class TableTextStyleResponse extends AsposeResponse {
+  @SerializedName("TableTextStyle")
+  private TableTextStyle tableTextStyle = null;
 
-  public ProjectIdsResponse projectIds(List<String> projectIds) {
-    this.projectIds = projectIds;
-    return this;
-  }
-
-  public ProjectIdsResponse addProjectIdsItem(String projectIdsItem) {
-    if (this.projectIds == null) {
-      this.projectIds = new ArrayList<String>();
-    }
-    this.projectIds.add(projectIdsItem);
+  public TableTextStyleResponse tableTextStyle(TableTextStyle tableTextStyle) {
+    this.tableTextStyle = tableTextStyle;
     return this;
   }
 
    /**
-   * UIds of the project
-   * @return projectIds
+   * Table text style of specified view
+   * @return tableTextStyle
   **/
-  @ApiModelProperty(value = "UIds of the project")
-  public List<String> getProjectIds() {
-    return projectIds;
+  @ApiModelProperty(value = "Table text style of specified view")
+  public TableTextStyle getTableTextStyle() {
+    return tableTextStyle;
   }
 
-  public void setProjectIds(List<String> projectIds) {
-    this.projectIds = projectIds;
+  public void setTableTextStyle(TableTextStyle tableTextStyle) {
+    this.tableTextStyle = tableTextStyle;
   }
 
 
@@ -85,23 +76,23 @@ public class ProjectIdsResponse extends AsposeResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProjectIdsResponse projectIdsResponse = (ProjectIdsResponse) o;
-    return Objects.equals(this.projectIds, projectIdsResponse.projectIds) &&
+    TableTextStyleResponse tableTextStyleResponse = (TableTextStyleResponse) o;
+    return Objects.equals(this.tableTextStyle, tableTextStyleResponse.tableTextStyle) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectIds, super.hashCode());
+    return Objects.hash(tableTextStyle, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProjectIdsResponse {\n");
+    sb.append("class TableTextStyleResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    projectIds: ").append(toIndentedString(projectIds)).append("\n");
+    sb.append("    tableTextStyle: ").append(toIndentedString(tableTextStyle)).append("\n");
     sb.append("}");
     return sb.toString();
   }
