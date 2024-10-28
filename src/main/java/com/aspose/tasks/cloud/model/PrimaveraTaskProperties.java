@@ -29,6 +29,9 @@ package com.aspose.tasks.cloud.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.aspose.tasks.cloud.model.PrimaveraActivityType;
+import com.aspose.tasks.cloud.model.PrimaveraDurationType;
+import com.aspose.tasks.cloud.model.PrimaveraPercentCompleteType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -37,6 +40,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.math.BigDecimal;
 import org.threeten.bp.OffsetDateTime;
 
 /**
@@ -74,6 +78,69 @@ public class PrimaveraTaskProperties {
 
   @SerializedName("RawStatus")
   private String rawStatus = null;
+
+  @SerializedName("DurationPercentComplete")
+  private Double durationPercentComplete = null;
+
+  @SerializedName("PhysicalPercentComplete")
+  private Double physicalPercentComplete = null;
+
+  @SerializedName("ActualNonLaborUnits")
+  private Double actualNonLaborUnits = null;
+
+  @SerializedName("ActualLaborUnits")
+  private Double actualLaborUnits = null;
+
+  @SerializedName("UnitsPercentComplete")
+  private Double unitsPercentComplete = null;
+
+  @SerializedName("RemainingLaborUnits")
+  private Double remainingLaborUnits = null;
+
+  @SerializedName("RemainingNonLaborUnits")
+  private Double remainingNonLaborUnits = null;
+
+  @SerializedName("DurationType")
+  private PrimaveraDurationType durationType = null;
+
+  @SerializedName("ActivityType")
+  private PrimaveraActivityType activityType = null;
+
+  @SerializedName("PercentCompleteType")
+  private PrimaveraPercentCompleteType percentCompleteType = null;
+
+  @SerializedName("ActualLaborCost")
+  private BigDecimal actualLaborCost = null;
+
+  @SerializedName("ActualNonlaborCost")
+  private BigDecimal actualNonlaborCost = null;
+
+  @SerializedName("ActualMaterialCost")
+  private BigDecimal actualMaterialCost = null;
+
+  @SerializedName("ActualExpenseCost")
+  private BigDecimal actualExpenseCost = null;
+
+  @SerializedName("RemainingExpenseCost")
+  private BigDecimal remainingExpenseCost = null;
+
+  @SerializedName("ActualTotalCost")
+  private BigDecimal actualTotalCost = null;
+
+  @SerializedName("BudgetedTotalCost")
+  private BigDecimal budgetedTotalCost = null;
+
+  @SerializedName("BudgetedLaborCost")
+  private BigDecimal budgetedLaborCost = null;
+
+  @SerializedName("BudgetedNonlaborCost")
+  private BigDecimal budgetedNonlaborCost = null;
+
+  @SerializedName("BudgetedMaterialCost")
+  private BigDecimal budgetedMaterialCost = null;
+
+  @SerializedName("BudgetedExpenseCost")
+  private BigDecimal budgetedExpenseCost = null;
 
   public PrimaveraTaskProperties sequenceNumber(Integer sequenceNumber) {
     this.sequenceNumber = sequenceNumber;
@@ -255,6 +322,384 @@ public class PrimaveraTaskProperties {
     this.rawStatus = rawStatus;
   }
 
+  public PrimaveraTaskProperties durationPercentComplete(Double durationPercentComplete) {
+    this.durationPercentComplete = durationPercentComplete;
+    return this;
+  }
+
+   /**
+   * Gets the value of duration percent complete.
+   * @return durationPercentComplete
+  **/
+  @ApiModelProperty(required = true, value = "Gets the value of duration percent complete.")
+  public Double getDurationPercentComplete() {
+    return durationPercentComplete;
+  }
+
+  public void setDurationPercentComplete(Double durationPercentComplete) {
+    this.durationPercentComplete = durationPercentComplete;
+  }
+
+  public PrimaveraTaskProperties physicalPercentComplete(Double physicalPercentComplete) {
+    this.physicalPercentComplete = physicalPercentComplete;
+    return this;
+  }
+
+   /**
+   * Gets the value of Physical Percent Complete.
+   * @return physicalPercentComplete
+  **/
+  @ApiModelProperty(required = true, value = "Gets the value of Physical Percent Complete.")
+  public Double getPhysicalPercentComplete() {
+    return physicalPercentComplete;
+  }
+
+  public void setPhysicalPercentComplete(Double physicalPercentComplete) {
+    this.physicalPercentComplete = physicalPercentComplete;
+  }
+
+  public PrimaveraTaskProperties actualNonLaborUnits(Double actualNonLaborUnits) {
+    this.actualNonLaborUnits = actualNonLaborUnits;
+    return this;
+  }
+
+   /**
+   * Gets the value of actual non labor units.
+   * @return actualNonLaborUnits
+  **/
+  @ApiModelProperty(required = true, value = "Gets the value of actual non labor units.")
+  public Double getActualNonLaborUnits() {
+    return actualNonLaborUnits;
+  }
+
+  public void setActualNonLaborUnits(Double actualNonLaborUnits) {
+    this.actualNonLaborUnits = actualNonLaborUnits;
+  }
+
+  public PrimaveraTaskProperties actualLaborUnits(Double actualLaborUnits) {
+    this.actualLaborUnits = actualLaborUnits;
+    return this;
+  }
+
+   /**
+   * Gets the value of actual labor units.
+   * @return actualLaborUnits
+  **/
+  @ApiModelProperty(required = true, value = "Gets the value of actual labor units.")
+  public Double getActualLaborUnits() {
+    return actualLaborUnits;
+  }
+
+  public void setActualLaborUnits(Double actualLaborUnits) {
+    this.actualLaborUnits = actualLaborUnits;
+  }
+
+  public PrimaveraTaskProperties unitsPercentComplete(Double unitsPercentComplete) {
+    this.unitsPercentComplete = unitsPercentComplete;
+    return this;
+  }
+
+   /**
+   * Gets the value of units percent complete.
+   * @return unitsPercentComplete
+  **/
+  @ApiModelProperty(required = true, value = "Gets the value of units percent complete.")
+  public Double getUnitsPercentComplete() {
+    return unitsPercentComplete;
+  }
+
+  public void setUnitsPercentComplete(Double unitsPercentComplete) {
+    this.unitsPercentComplete = unitsPercentComplete;
+  }
+
+  public PrimaveraTaskProperties remainingLaborUnits(Double remainingLaborUnits) {
+    this.remainingLaborUnits = remainingLaborUnits;
+    return this;
+  }
+
+   /**
+   * Gets the value of remaining labor units.
+   * @return remainingLaborUnits
+  **/
+  @ApiModelProperty(required = true, value = "Gets the value of remaining labor units.")
+  public Double getRemainingLaborUnits() {
+    return remainingLaborUnits;
+  }
+
+  public void setRemainingLaborUnits(Double remainingLaborUnits) {
+    this.remainingLaborUnits = remainingLaborUnits;
+  }
+
+  public PrimaveraTaskProperties remainingNonLaborUnits(Double remainingNonLaborUnits) {
+    this.remainingNonLaborUnits = remainingNonLaborUnits;
+    return this;
+  }
+
+   /**
+   * Gets the value of remaining non labor units.
+   * @return remainingNonLaborUnits
+  **/
+  @ApiModelProperty(required = true, value = "Gets the value of remaining non labor units.")
+  public Double getRemainingNonLaborUnits() {
+    return remainingNonLaborUnits;
+  }
+
+  public void setRemainingNonLaborUnits(Double remainingNonLaborUnits) {
+    this.remainingNonLaborUnits = remainingNonLaborUnits;
+  }
+
+  public PrimaveraTaskProperties durationType(PrimaveraDurationType durationType) {
+    this.durationType = durationType;
+    return this;
+  }
+
+   /**
+   * Gets the value of &#39;Duration Type&#39; field of the activity.
+   * @return durationType
+  **/
+  @ApiModelProperty(required = true, value = "Gets the value of 'Duration Type' field of the activity.")
+  public PrimaveraDurationType getDurationType() {
+    return durationType;
+  }
+
+  public void setDurationType(PrimaveraDurationType durationType) {
+    this.durationType = durationType;
+  }
+
+  public PrimaveraTaskProperties activityType(PrimaveraActivityType activityType) {
+    this.activityType = activityType;
+    return this;
+  }
+
+   /**
+   * Gets the value of &#39;Activity Type&#39; field.
+   * @return activityType
+  **/
+  @ApiModelProperty(required = true, value = "Gets the value of 'Activity Type' field.")
+  public PrimaveraActivityType getActivityType() {
+    return activityType;
+  }
+
+  public void setActivityType(PrimaveraActivityType activityType) {
+    this.activityType = activityType;
+  }
+
+  public PrimaveraTaskProperties percentCompleteType(PrimaveraPercentCompleteType percentCompleteType) {
+    this.percentCompleteType = percentCompleteType;
+    return this;
+  }
+
+   /**
+   * Gets the value of &#39;% Complete Type&#39; field of the activity.
+   * @return percentCompleteType
+  **/
+  @ApiModelProperty(required = true, value = "Gets the value of '% Complete Type' field of the activity.")
+  public PrimaveraPercentCompleteType getPercentCompleteType() {
+    return percentCompleteType;
+  }
+
+  public void setPercentCompleteType(PrimaveraPercentCompleteType percentCompleteType) {
+    this.percentCompleteType = percentCompleteType;
+  }
+
+  public PrimaveraTaskProperties actualLaborCost(BigDecimal actualLaborCost) {
+    this.actualLaborCost = actualLaborCost;
+    return this;
+  }
+
+   /**
+   * Gets the value of actual labor cost.
+   * @return actualLaborCost
+  **/
+  @ApiModelProperty(required = true, value = "Gets the value of actual labor cost.")
+  public BigDecimal getActualLaborCost() {
+    return actualLaborCost;
+  }
+
+  public void setActualLaborCost(BigDecimal actualLaborCost) {
+    this.actualLaborCost = actualLaborCost;
+  }
+
+  public PrimaveraTaskProperties actualNonlaborCost(BigDecimal actualNonlaborCost) {
+    this.actualNonlaborCost = actualNonlaborCost;
+    return this;
+  }
+
+   /**
+   * Gets the value of actual non labor cost.
+   * @return actualNonlaborCost
+  **/
+  @ApiModelProperty(required = true, value = "Gets the value of actual non labor cost.")
+  public BigDecimal getActualNonlaborCost() {
+    return actualNonlaborCost;
+  }
+
+  public void setActualNonlaborCost(BigDecimal actualNonlaborCost) {
+    this.actualNonlaborCost = actualNonlaborCost;
+  }
+
+  public PrimaveraTaskProperties actualMaterialCost(BigDecimal actualMaterialCost) {
+    this.actualMaterialCost = actualMaterialCost;
+    return this;
+  }
+
+   /**
+   * Gets the value of actual material cost.             
+   * @return actualMaterialCost
+  **/
+  @ApiModelProperty(required = true, value = "Gets the value of actual material cost.             ")
+  public BigDecimal getActualMaterialCost() {
+    return actualMaterialCost;
+  }
+
+  public void setActualMaterialCost(BigDecimal actualMaterialCost) {
+    this.actualMaterialCost = actualMaterialCost;
+  }
+
+  public PrimaveraTaskProperties actualExpenseCost(BigDecimal actualExpenseCost) {
+    this.actualExpenseCost = actualExpenseCost;
+    return this;
+  }
+
+   /**
+   * Gets the value of actual expense cost.
+   * @return actualExpenseCost
+  **/
+  @ApiModelProperty(required = true, value = "Gets the value of actual expense cost.")
+  public BigDecimal getActualExpenseCost() {
+    return actualExpenseCost;
+  }
+
+  public void setActualExpenseCost(BigDecimal actualExpenseCost) {
+    this.actualExpenseCost = actualExpenseCost;
+  }
+
+  public PrimaveraTaskProperties remainingExpenseCost(BigDecimal remainingExpenseCost) {
+    this.remainingExpenseCost = remainingExpenseCost;
+    return this;
+  }
+
+   /**
+   * Gets the value of remaining expense cost.
+   * @return remainingExpenseCost
+  **/
+  @ApiModelProperty(required = true, value = "Gets the value of remaining expense cost.")
+  public BigDecimal getRemainingExpenseCost() {
+    return remainingExpenseCost;
+  }
+
+  public void setRemainingExpenseCost(BigDecimal remainingExpenseCost) {
+    this.remainingExpenseCost = remainingExpenseCost;
+  }
+
+  public PrimaveraTaskProperties actualTotalCost(BigDecimal actualTotalCost) {
+    this.actualTotalCost = actualTotalCost;
+    return this;
+  }
+
+   /**
+   * Gets the total value of actual costs.
+   * @return actualTotalCost
+  **/
+  @ApiModelProperty(required = true, value = "Gets the total value of actual costs.")
+  public BigDecimal getActualTotalCost() {
+    return actualTotalCost;
+  }
+
+  public void setActualTotalCost(BigDecimal actualTotalCost) {
+    this.actualTotalCost = actualTotalCost;
+  }
+
+  public PrimaveraTaskProperties budgetedTotalCost(BigDecimal budgetedTotalCost) {
+    this.budgetedTotalCost = budgetedTotalCost;
+    return this;
+  }
+
+   /**
+   * Gets the total value of budgeted (or planned) costs.
+   * @return budgetedTotalCost
+  **/
+  @ApiModelProperty(required = true, value = "Gets the total value of budgeted (or planned) costs.")
+  public BigDecimal getBudgetedTotalCost() {
+    return budgetedTotalCost;
+  }
+
+  public void setBudgetedTotalCost(BigDecimal budgetedTotalCost) {
+    this.budgetedTotalCost = budgetedTotalCost;
+  }
+
+  public PrimaveraTaskProperties budgetedLaborCost(BigDecimal budgetedLaborCost) {
+    this.budgetedLaborCost = budgetedLaborCost;
+    return this;
+  }
+
+   /**
+   * Gets the value of budgeted (or planned) labor cost.
+   * @return budgetedLaborCost
+  **/
+  @ApiModelProperty(required = true, value = "Gets the value of budgeted (or planned) labor cost.")
+  public BigDecimal getBudgetedLaborCost() {
+    return budgetedLaborCost;
+  }
+
+  public void setBudgetedLaborCost(BigDecimal budgetedLaborCost) {
+    this.budgetedLaborCost = budgetedLaborCost;
+  }
+
+  public PrimaveraTaskProperties budgetedNonlaborCost(BigDecimal budgetedNonlaborCost) {
+    this.budgetedNonlaborCost = budgetedNonlaborCost;
+    return this;
+  }
+
+   /**
+   * Gets the value of budgeted (or planned) non labor cost.
+   * @return budgetedNonlaborCost
+  **/
+  @ApiModelProperty(required = true, value = "Gets the value of budgeted (or planned) non labor cost.")
+  public BigDecimal getBudgetedNonlaborCost() {
+    return budgetedNonlaborCost;
+  }
+
+  public void setBudgetedNonlaborCost(BigDecimal budgetedNonlaborCost) {
+    this.budgetedNonlaborCost = budgetedNonlaborCost;
+  }
+
+  public PrimaveraTaskProperties budgetedMaterialCost(BigDecimal budgetedMaterialCost) {
+    this.budgetedMaterialCost = budgetedMaterialCost;
+    return this;
+  }
+
+   /**
+   * Gets the value of of budgeted (or planned) material cost.
+   * @return budgetedMaterialCost
+  **/
+  @ApiModelProperty(required = true, value = "Gets the value of of budgeted (or planned) material cost.")
+  public BigDecimal getBudgetedMaterialCost() {
+    return budgetedMaterialCost;
+  }
+
+  public void setBudgetedMaterialCost(BigDecimal budgetedMaterialCost) {
+    this.budgetedMaterialCost = budgetedMaterialCost;
+  }
+
+  public PrimaveraTaskProperties budgetedExpenseCost(BigDecimal budgetedExpenseCost) {
+    this.budgetedExpenseCost = budgetedExpenseCost;
+    return this;
+  }
+
+   /**
+   * Gets the value of budgeted (or planned) expense cost.
+   * @return budgetedExpenseCost
+  **/
+  @ApiModelProperty(required = true, value = "Gets the value of budgeted (or planned) expense cost.")
+  public BigDecimal getBudgetedExpenseCost() {
+    return budgetedExpenseCost;
+  }
+
+  public void setBudgetedExpenseCost(BigDecimal budgetedExpenseCost) {
+    this.budgetedExpenseCost = budgetedExpenseCost;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -274,12 +719,33 @@ public class PrimaveraTaskProperties {
         Objects.equals(this.rawDurationType, primaveraTaskProperties.rawDurationType) &&
         Objects.equals(this.rawActivityType, primaveraTaskProperties.rawActivityType) &&
         Objects.equals(this.rawCompletePercentType, primaveraTaskProperties.rawCompletePercentType) &&
-        Objects.equals(this.rawStatus, primaveraTaskProperties.rawStatus);
+        Objects.equals(this.rawStatus, primaveraTaskProperties.rawStatus) &&
+        Objects.equals(this.durationPercentComplete, primaveraTaskProperties.durationPercentComplete) &&
+        Objects.equals(this.physicalPercentComplete, primaveraTaskProperties.physicalPercentComplete) &&
+        Objects.equals(this.actualNonLaborUnits, primaveraTaskProperties.actualNonLaborUnits) &&
+        Objects.equals(this.actualLaborUnits, primaveraTaskProperties.actualLaborUnits) &&
+        Objects.equals(this.unitsPercentComplete, primaveraTaskProperties.unitsPercentComplete) &&
+        Objects.equals(this.remainingLaborUnits, primaveraTaskProperties.remainingLaborUnits) &&
+        Objects.equals(this.remainingNonLaborUnits, primaveraTaskProperties.remainingNonLaborUnits) &&
+        Objects.equals(this.durationType, primaveraTaskProperties.durationType) &&
+        Objects.equals(this.activityType, primaveraTaskProperties.activityType) &&
+        Objects.equals(this.percentCompleteType, primaveraTaskProperties.percentCompleteType) &&
+        Objects.equals(this.actualLaborCost, primaveraTaskProperties.actualLaborCost) &&
+        Objects.equals(this.actualNonlaborCost, primaveraTaskProperties.actualNonlaborCost) &&
+        Objects.equals(this.actualMaterialCost, primaveraTaskProperties.actualMaterialCost) &&
+        Objects.equals(this.actualExpenseCost, primaveraTaskProperties.actualExpenseCost) &&
+        Objects.equals(this.remainingExpenseCost, primaveraTaskProperties.remainingExpenseCost) &&
+        Objects.equals(this.actualTotalCost, primaveraTaskProperties.actualTotalCost) &&
+        Objects.equals(this.budgetedTotalCost, primaveraTaskProperties.budgetedTotalCost) &&
+        Objects.equals(this.budgetedLaborCost, primaveraTaskProperties.budgetedLaborCost) &&
+        Objects.equals(this.budgetedNonlaborCost, primaveraTaskProperties.budgetedNonlaborCost) &&
+        Objects.equals(this.budgetedMaterialCost, primaveraTaskProperties.budgetedMaterialCost) &&
+        Objects.equals(this.budgetedExpenseCost, primaveraTaskProperties.budgetedExpenseCost);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sequenceNumber, activityId, remainingEarlyFinish, remainingEarlyStart, remainingLateStart, remainingLateFinish, rawDurationType, rawActivityType, rawCompletePercentType, rawStatus);
+    return Objects.hash(sequenceNumber, activityId, remainingEarlyFinish, remainingEarlyStart, remainingLateStart, remainingLateFinish, rawDurationType, rawActivityType, rawCompletePercentType, rawStatus, durationPercentComplete, physicalPercentComplete, actualNonLaborUnits, actualLaborUnits, unitsPercentComplete, remainingLaborUnits, remainingNonLaborUnits, durationType, activityType, percentCompleteType, actualLaborCost, actualNonlaborCost, actualMaterialCost, actualExpenseCost, remainingExpenseCost, actualTotalCost, budgetedTotalCost, budgetedLaborCost, budgetedNonlaborCost, budgetedMaterialCost, budgetedExpenseCost);
   }
 
 
@@ -298,6 +764,27 @@ public class PrimaveraTaskProperties {
     sb.append("    rawActivityType: ").append(toIndentedString(rawActivityType)).append("\n");
     sb.append("    rawCompletePercentType: ").append(toIndentedString(rawCompletePercentType)).append("\n");
     sb.append("    rawStatus: ").append(toIndentedString(rawStatus)).append("\n");
+    sb.append("    durationPercentComplete: ").append(toIndentedString(durationPercentComplete)).append("\n");
+    sb.append("    physicalPercentComplete: ").append(toIndentedString(physicalPercentComplete)).append("\n");
+    sb.append("    actualNonLaborUnits: ").append(toIndentedString(actualNonLaborUnits)).append("\n");
+    sb.append("    actualLaborUnits: ").append(toIndentedString(actualLaborUnits)).append("\n");
+    sb.append("    unitsPercentComplete: ").append(toIndentedString(unitsPercentComplete)).append("\n");
+    sb.append("    remainingLaborUnits: ").append(toIndentedString(remainingLaborUnits)).append("\n");
+    sb.append("    remainingNonLaborUnits: ").append(toIndentedString(remainingNonLaborUnits)).append("\n");
+    sb.append("    durationType: ").append(toIndentedString(durationType)).append("\n");
+    sb.append("    activityType: ").append(toIndentedString(activityType)).append("\n");
+    sb.append("    percentCompleteType: ").append(toIndentedString(percentCompleteType)).append("\n");
+    sb.append("    actualLaborCost: ").append(toIndentedString(actualLaborCost)).append("\n");
+    sb.append("    actualNonlaborCost: ").append(toIndentedString(actualNonlaborCost)).append("\n");
+    sb.append("    actualMaterialCost: ").append(toIndentedString(actualMaterialCost)).append("\n");
+    sb.append("    actualExpenseCost: ").append(toIndentedString(actualExpenseCost)).append("\n");
+    sb.append("    remainingExpenseCost: ").append(toIndentedString(remainingExpenseCost)).append("\n");
+    sb.append("    actualTotalCost: ").append(toIndentedString(actualTotalCost)).append("\n");
+    sb.append("    budgetedTotalCost: ").append(toIndentedString(budgetedTotalCost)).append("\n");
+    sb.append("    budgetedLaborCost: ").append(toIndentedString(budgetedLaborCost)).append("\n");
+    sb.append("    budgetedNonlaborCost: ").append(toIndentedString(budgetedNonlaborCost)).append("\n");
+    sb.append("    budgetedMaterialCost: ").append(toIndentedString(budgetedMaterialCost)).append("\n");
+    sb.append("    budgetedExpenseCost: ").append(toIndentedString(budgetedExpenseCost)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,6 +48,9 @@ import java.util.List;
 @ApiModel(description = "Represents a calendar used in a project.")
 
 public class Calendar {
+  @SerializedName("Guid")
+  private String guid = null;
+
   @SerializedName("Name")
   private String name = null;
 
@@ -65,6 +68,24 @@ public class Calendar {
 
   @SerializedName("IsBaselineCalendar")
   private Boolean isBaselineCalendar = null;
+
+  public Calendar guid(String guid) {
+    this.guid = guid;
+    return this;
+  }
+
+   /**
+   * Gets calendar&#39;s Guid.
+   * @return guid
+  **/
+  @ApiModelProperty(value = "Gets calendar's Guid.")
+  public String getGuid() {
+    return guid;
+  }
+
+  public void setGuid(String guid) {
+    this.guid = guid;
+  }
 
   public Calendar name(String name) {
     this.name = name;
@@ -192,7 +213,8 @@ public class Calendar {
       return false;
     }
     Calendar calendar = (Calendar) o;
-    return Objects.equals(this.name, calendar.name) &&
+    return Objects.equals(this.guid, calendar.guid) &&
+        Objects.equals(this.name, calendar.name) &&
         Objects.equals(this.uid, calendar.uid) &&
         Objects.equals(this.days, calendar.days) &&
         Objects.equals(this.isBaseCalendar, calendar.isBaseCalendar) &&
@@ -202,7 +224,7 @@ public class Calendar {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, uid, days, isBaseCalendar, baseCalendar, isBaselineCalendar);
+    return Objects.hash(guid, name, uid, days, isBaseCalendar, baseCalendar, isBaselineCalendar);
   }
 
 
@@ -211,6 +233,7 @@ public class Calendar {
     StringBuilder sb = new StringBuilder();
     sb.append("class Calendar {\n");
     
+    sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
     sb.append("    days: ").append(toIndentedString(days)).append("\n");

@@ -71,5 +71,8 @@ public class TasksPrimaveraPropertiesTests extends TestBase {
         assertEquals("Task Dependent", result.getPrimaveraProperties().getRawActivityType());
         assertEquals("Units", result.getPrimaveraProperties().getRawCompletePercentType());
         assertEquals("Not Started", result.getPrimaveraProperties().getRawStatus());
+        assertEquals(PrimaveraDurationType.FIXEDUNITS, result.getPrimaveraProperties().getDurationType());
+        assertEquals(PrimaveraActivityType.TASKDEPENDENT, result.getPrimaveraProperties().getActivityType());
+        assertEquals(PrimaveraPercentCompleteType.UNITS, result.getPrimaveraProperties().getPercentCompleteType());
     }
 }

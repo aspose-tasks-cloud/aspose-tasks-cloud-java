@@ -121,10 +121,10 @@ public class View {
   }
 
    /**
-   * Gets or sets the name of a View object.
+   * Gets or sets the name of a view object.
    * @return name
   **/
-  @ApiModelProperty(value = "Gets or sets the name of a View object.")
+  @ApiModelProperty(value = "Gets or sets the name of a view object.")
   public String getName() {
     return name;
   }

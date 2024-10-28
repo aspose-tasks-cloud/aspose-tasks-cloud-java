@@ -83,6 +83,7 @@ public class CalendarsTests extends TestBase {
         assertNotNull(result);
         assertEquals(200, (int) result.getCode());
         assertNotNull(result.getCalendar());
+        assertEquals("3F979F74-B9D3-4E5F-98DC-5E08060A0C30", result.getCalendar().getGuid());
         assertEquals("Standard", result.getCalendar().getName());
         assertTrue(result.getCalendar().isIsBaseCalendar());
         assertFalse(result.getCalendar().isIsBaselineCalendar());
