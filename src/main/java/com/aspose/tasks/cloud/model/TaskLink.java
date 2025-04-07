@@ -67,6 +67,9 @@ public class TaskLink {
   @SerializedName("LagFormat")
   private TimeUnitType lagFormat = null;
 
+  @SerializedName("LinkLagTimeSpan")
+  private String linkLagTimeSpan = null;
+
   public TaskLink link(Link link) {
     this.link = link;
     return this;
@@ -193,6 +196,24 @@ public class TaskLink {
     this.lagFormat = lagFormat;
   }
 
+  public TaskLink linkLagTimeSpan(String linkLagTimeSpan) {
+    this.linkLagTimeSpan = linkLagTimeSpan;
+    return this;
+  }
+
+   /**
+   * Gets or sets lag duration, depending on LagFormat.
+   * @return linkLagTimeSpan
+  **/
+  @ApiModelProperty(required = true, value = "Gets or sets lag duration, depending on LagFormat.")
+  public String getLinkLagTimeSpan() {
+    return linkLagTimeSpan;
+  }
+
+  public void setLinkLagTimeSpan(String linkLagTimeSpan) {
+    this.linkLagTimeSpan = linkLagTimeSpan;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -209,12 +230,13 @@ public class TaskLink {
         Objects.equals(this.successorUid, taskLink.successorUid) &&
         Objects.equals(this.linkType, taskLink.linkType) &&
         Objects.equals(this.lag, taskLink.lag) &&
-        Objects.equals(this.lagFormat, taskLink.lagFormat);
+        Objects.equals(this.lagFormat, taskLink.lagFormat) &&
+        Objects.equals(this.linkLagTimeSpan, taskLink.linkLagTimeSpan);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(link, index, predecessorUid, successorUid, linkType, lag, lagFormat);
+    return Objects.hash(link, index, predecessorUid, successorUid, linkType, lag, lagFormat, linkLagTimeSpan);
   }
 
 
@@ -230,6 +252,7 @@ public class TaskLink {
     sb.append("    linkType: ").append(toIndentedString(linkType)).append("\n");
     sb.append("    lag: ").append(toIndentedString(lag)).append("\n");
     sb.append("    lagFormat: ").append(toIndentedString(lagFormat)).append("\n");
+    sb.append("    linkLagTimeSpan: ").append(toIndentedString(linkLagTimeSpan)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -51,6 +51,9 @@ public class ProjectRecalculationResult {
   @SerializedName("ValidationErrorMessage")
   private String validationErrorMessage = null;
 
+  @SerializedName("FailedTaskUid")
+  private Integer failedTaskUid = null;
+
   public ProjectRecalculationResult validationState(ProjectValidationState validationState) {
     this.validationState = validationState;
     return this;
@@ -87,6 +90,24 @@ public class ProjectRecalculationResult {
     this.validationErrorMessage = validationErrorMessage;
   }
 
+  public ProjectRecalculationResult failedTaskUid(Integer failedTaskUid) {
+    this.failedTaskUid = failedTaskUid;
+    return this;
+  }
+
+   /**
+   * Gets the task uid which caused the validation error.
+   * @return failedTaskUid
+  **/
+  @ApiModelProperty(value = "Gets the task uid which caused the validation error.")
+  public Integer getFailedTaskUid() {
+    return failedTaskUid;
+  }
+
+  public void setFailedTaskUid(Integer failedTaskUid) {
+    this.failedTaskUid = failedTaskUid;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -98,12 +119,13 @@ public class ProjectRecalculationResult {
     }
     ProjectRecalculationResult projectRecalculationResult = (ProjectRecalculationResult) o;
     return Objects.equals(this.validationState, projectRecalculationResult.validationState) &&
-        Objects.equals(this.validationErrorMessage, projectRecalculationResult.validationErrorMessage);
+        Objects.equals(this.validationErrorMessage, projectRecalculationResult.validationErrorMessage) &&
+        Objects.equals(this.failedTaskUid, projectRecalculationResult.failedTaskUid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(validationState, validationErrorMessage);
+    return Objects.hash(validationState, validationErrorMessage, failedTaskUid);
   }
 
 
@@ -114,6 +136,7 @@ public class ProjectRecalculationResult {
     
     sb.append("    validationState: ").append(toIndentedString(validationState)).append("\n");
     sb.append("    validationErrorMessage: ").append(toIndentedString(validationErrorMessage)).append("\n");
+    sb.append("    failedTaskUid: ").append(toIndentedString(failedTaskUid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

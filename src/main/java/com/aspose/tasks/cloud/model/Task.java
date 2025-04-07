@@ -134,6 +134,9 @@ public class Task {
   @SerializedName("Cost")
   private BigDecimal cost = null;
 
+  @SerializedName("OutlineNumber")
+  private String outlineNumber = null;
+
   @SerializedName("Cv")
   private Double cv = null;
 
@@ -400,6 +403,9 @@ public class Task {
 
   @SerializedName("ActivityId")
   private String activityId = null;
+
+  @SerializedName("ExternalUid")
+  private Integer externalUid = null;
 
   public Task uid(Integer uid) {
     this.uid = uid;
@@ -867,6 +873,24 @@ public class Task {
 
   public void setCost(BigDecimal cost) {
     this.cost = cost;
+  }
+
+  public Task outlineNumber(String outlineNumber) {
+    this.outlineNumber = outlineNumber;
+    return this;
+  }
+
+   /**
+   * Gets or sets a value of OutlineNumber.
+   * @return outlineNumber
+  **/
+  @ApiModelProperty(value = "Gets or sets a value of OutlineNumber.")
+  public String getOutlineNumber() {
+    return outlineNumber;
+  }
+
+  public void setOutlineNumber(String outlineNumber) {
+    this.outlineNumber = outlineNumber;
   }
 
   public Task cv(Double cv) {
@@ -2503,6 +2527,24 @@ public class Task {
     this.activityId = activityId;
   }
 
+  public Task externalUid(Integer externalUid) {
+    this.externalUid = externalUid;
+    return this;
+  }
+
+   /**
+   * Contains the external task&#39;s Unique identifier when the task is external.
+   * @return externalUid
+  **/
+  @ApiModelProperty(required = true, value = "Contains the external task's Unique identifier when the task is external.")
+  public Integer getExternalUid() {
+    return externalUid;
+  }
+
+  public void setExternalUid(Integer externalUid) {
+    this.externalUid = externalUid;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -2539,6 +2581,7 @@ public class Task {
         Objects.equals(this.constraintType, task.constraintType) &&
         Objects.equals(this.contact, task.contact) &&
         Objects.equals(this.cost, task.cost) &&
+        Objects.equals(this.outlineNumber, task.outlineNumber) &&
         Objects.equals(this.cv, task.cv) &&
         Objects.equals(this.deadline, task.deadline) &&
         Objects.equals(this.durationVariance, task.durationVariance) &&
@@ -2627,12 +2670,13 @@ public class Task {
         Objects.equals(this.extendedAttributes, task.extendedAttributes) &&
         Objects.equals(this.outlineCodes, task.outlineCodes) &&
         Objects.equals(this.warning, task.warning) &&
-        Objects.equals(this.activityId, task.activityId);
+        Objects.equals(this.activityId, task.activityId) &&
+        Objects.equals(this.externalUid, task.externalUid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uid, id, name, durationText, duration, start, finish, startText, finishText, percentComplete, percentWorkComplete, isActive, actualCost, actualDuration, actualFinish, actualOvertimeCost, actualOvertimeWork, actualWorkProtected, actualOvertimeWorkProtected, actualStart, budgetWork, budgetCost, constraintDate, constraintType, contact, cost, cv, deadline, durationVariance, earlyFinish, earlyStart, isEffortDriven, isExternalTask, externalTaskProject, externalId, finishSlack, finishVariance, fixedCost, fixedCostAccrual, freeSlack, guid, hasOverallocatedResource, hideBar, ignoreResourceCalendar, lateFinish, lateStart, isLevelAssignments, canLevelingSplit, levelingDelay, isMarked, isMilestone, isCritical, isSubproject, isSubprojectReadOnly, subprojectName, isSummary, subtasksUids, outlineLevel, isOverAllocated, isEstimated, overtimeCost, overtimeWork, physicalPercentComplete, preLeveledFinish, preLeveledStart, isRecurring, regularWork, remainingCost, remainingDuration, remainingOvertimeCost, remainingOvertimeWork, remainingWork, resume, isResumeValid, stop, isRollup, startSlack, startVariance, calendarUid, isManual, manualStart, manualFinish, manualDuration, totalSlack, type, wbs, priority, work, workVariance, notesText, notesRTF, acwp, bcws, bcwp, levelingDelayFormat, predecessors, successors, ignoreWarnings, isExpanded, displayOnTimeline, displayAsSummary, hyperlink, hyperlinkAddress, hyperlinkSubAddress, earnedValueMethod, isPublished, statusManager, commitmentStart, commitmentFinish, commitmentType, baselines, extendedAttributes, outlineCodes, warning, activityId);
+    return Objects.hash(uid, id, name, durationText, duration, start, finish, startText, finishText, percentComplete, percentWorkComplete, isActive, actualCost, actualDuration, actualFinish, actualOvertimeCost, actualOvertimeWork, actualWorkProtected, actualOvertimeWorkProtected, actualStart, budgetWork, budgetCost, constraintDate, constraintType, contact, cost, outlineNumber, cv, deadline, durationVariance, earlyFinish, earlyStart, isEffortDriven, isExternalTask, externalTaskProject, externalId, finishSlack, finishVariance, fixedCost, fixedCostAccrual, freeSlack, guid, hasOverallocatedResource, hideBar, ignoreResourceCalendar, lateFinish, lateStart, isLevelAssignments, canLevelingSplit, levelingDelay, isMarked, isMilestone, isCritical, isSubproject, isSubprojectReadOnly, subprojectName, isSummary, subtasksUids, outlineLevel, isOverAllocated, isEstimated, overtimeCost, overtimeWork, physicalPercentComplete, preLeveledFinish, preLeveledStart, isRecurring, regularWork, remainingCost, remainingDuration, remainingOvertimeCost, remainingOvertimeWork, remainingWork, resume, isResumeValid, stop, isRollup, startSlack, startVariance, calendarUid, isManual, manualStart, manualFinish, manualDuration, totalSlack, type, wbs, priority, work, workVariance, notesText, notesRTF, acwp, bcws, bcwp, levelingDelayFormat, predecessors, successors, ignoreWarnings, isExpanded, displayOnTimeline, displayAsSummary, hyperlink, hyperlinkAddress, hyperlinkSubAddress, earnedValueMethod, isPublished, statusManager, commitmentStart, commitmentFinish, commitmentType, baselines, extendedAttributes, outlineCodes, warning, activityId, externalUid);
   }
 
 
@@ -2667,6 +2711,7 @@ public class Task {
     sb.append("    constraintType: ").append(toIndentedString(constraintType)).append("\n");
     sb.append("    contact: ").append(toIndentedString(contact)).append("\n");
     sb.append("    cost: ").append(toIndentedString(cost)).append("\n");
+    sb.append("    outlineNumber: ").append(toIndentedString(outlineNumber)).append("\n");
     sb.append("    cv: ").append(toIndentedString(cv)).append("\n");
     sb.append("    deadline: ").append(toIndentedString(deadline)).append("\n");
     sb.append("    durationVariance: ").append(toIndentedString(durationVariance)).append("\n");
@@ -2756,6 +2801,7 @@ public class Task {
     sb.append("    outlineCodes: ").append(toIndentedString(outlineCodes)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("    activityId: ").append(toIndentedString(activityId)).append("\n");
+    sb.append("    externalUid: ").append(toIndentedString(externalUid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

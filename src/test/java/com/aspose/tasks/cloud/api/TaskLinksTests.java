@@ -128,6 +128,7 @@ public class TaskLinksTests extends TestBase {
         assertEquals(taskLinkToEdit.getLinkType(), result1.getTaskLinks().get(0).getLinkType());
         assertEquals(taskLinkToEdit.getLag(), result1.getTaskLinks().get(0).getLag());
         assertEquals(taskLinkToEdit.getLagFormat(), result1.getTaskLinks().get(0).getLagFormat());
+        assertEquals("16:00:00", result1.getTaskLinks().get(0).getLinkLagTimeSpan());
     }
 
     /*
